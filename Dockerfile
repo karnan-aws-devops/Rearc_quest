@@ -10,6 +10,6 @@ COPY src/ /app/src/
 
 COPY bin/ /app/bin
 
-EXPOSE 443
+EXPOSE 3000
 
 CMD ["node", "src/000.js"]
