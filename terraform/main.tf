@@ -27,7 +27,7 @@ module "alb" {
   subnet_ids    = var.subnet_ids
   instance_id   = module.ec2.instance_id
   vpc_id        = data.aws_vpc.default.id
-  quest_sg_id   = module.sg.security_group_id
+  quest_sg_id   = module.security_group.security_group_id
 }
 
 module "tls_cert" {
