@@ -24,6 +24,9 @@ variable "instance_type" {
     type = string
 }
 
+variable "subnet_ids" {
+    type = list(string)
+}
 variable "common_name" {
     default = "localhost"
 }
