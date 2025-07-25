@@ -19,3 +19,9 @@ module "ec2" {
     ami_id = var.ami_id
     instance_type = var.instance_type
 }
+
+module "tls_cert" {
+    source = "./modules/tls_certs"
+    common_name = var.common_name
+    organization = "Rearc"
+}

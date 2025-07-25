@@ -23,3 +23,7 @@ variable "ami_id" {
 variable "instance_type" {
     type = string
 }
+
+variable "common_name" {
+    default = "localhost"
+}
