@@ -23,5 +23,4 @@ module "ec2" {
 module "tls_cert" {
     source = "./modules/tls_certs"
     common_name = var.common_name
-    organization = "Rearc"
 }

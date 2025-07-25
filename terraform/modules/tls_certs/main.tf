@@ -21,7 +21,7 @@ resource "tls_self_signed_cert" "tls_cert" {
 }
 
 resource "local_file" "cert_file" {
-  content  = tls_self_signed_cert.tls_cert.tls_cert_pem
+  content  = tls_self_signed_cert.tls_cert.cert_pem
   filename = "${path.module}/../../certs/selfsigned.crt"
 }
 
