@@ -12,14 +12,14 @@ resource "aws_security_group" "quest_sg" {
   ingress {
     from_port   = 443
     to_port     = 443
-    protocol    = "https"
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
     from_port   = 80
     to_port     = 80
-    protocol    = "http"
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
