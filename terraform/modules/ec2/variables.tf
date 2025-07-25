@@ -6,7 +6,7 @@ variable "instance_type" {
     type = string
 }
 
-varible "key_name" {
+variable "key_name" {
     type = string
 }
 
