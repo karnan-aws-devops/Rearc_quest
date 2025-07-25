@@ -16,6 +16,6 @@ module "ec2" {
     source = "./modules/ec2"
     key_name = var.key_name
     sg_id = module.security_group.security_group_id
-    ami_id = var.ami.id
-    instance_type = var.instannce_type
+    ami_id = var.ami_id
+    instance_type = var.instance_type
 }
