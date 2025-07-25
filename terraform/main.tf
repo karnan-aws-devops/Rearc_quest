@@ -20,6 +20,16 @@ module "ec2" {
     instance_type = var.instance_type
 }
 
+module "alb" {
+  source        = "./modules/alb"
+  alb_name      = var.alb_name
+  tg_name       = var.tg_name
+  subnet_ids    = var.subnet_ids
+  instance_id   = module.ec2.instance_id
+  vpc_id        = data.aws_vpc.default.id
+  quest_sg_id   = module.sg.security_group_id
+}
+
 module "tls_cert" {
     source = "./modules/tls_certs"
     common_name = var.common_name
