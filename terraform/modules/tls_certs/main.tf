@@ -27,5 +27,5 @@ resource "local_file" "cert_file" {
 
 resource "local_file" "key_file" {
   content  = tls_private_key.tls_key.private_key_pem
-  filename = "${path.module}/../../certs/selfsigned.crt"
+  filename = "${path.module}/../../certs/selfsigned.key"
 }
