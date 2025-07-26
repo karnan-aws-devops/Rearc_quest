@@ -25,6 +25,17 @@ resource "aws_lb_listener" "quest-http-list" {
   }
 }
 
+resource "aws_lb_listener" "quest-https-list" {
+  load_balancer_arn = aws_lb.quest_alb.arn
+  port              = 443
+  protocol          = "HTTPS"
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.quest_tg.arn
+  }
+}
+
 resource "aws_lb_target_group_attachment" "ec2" {
   target_group_arn = aws_lb_target_group.quest_tg.arn
   target_id        = var.instance_id

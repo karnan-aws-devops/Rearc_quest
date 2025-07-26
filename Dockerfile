@@ -6,6 +6,10 @@ COPY package*.json ./
 
 RUN npm install
 
+COPY certs/selfsigned.crt /app/certs/selfsigned.crt
+
+COPY certs/selfsigned.key /app/certs/selfsigned.key
+
 COPY src/ /app/src/
 
 COPY bin/ /app/bin

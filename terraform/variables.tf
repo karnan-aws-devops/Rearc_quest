@@ -24,6 +24,14 @@ variable "instance_type" {
     type = string
 }
 
+variable "alb_name" { 
+    type = string 
+}
+
+variable "tg_name" {
+    type = string
+}
+
 variable "subnet_ids" {
     type = list(string)
 }
