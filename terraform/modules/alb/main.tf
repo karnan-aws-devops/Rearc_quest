@@ -12,9 +12,15 @@ resource "aws_lb_target_group" "quest_tg" {
   protocol = "HTTP"
   vpc_id   = var.vpc_id
   target_type = "instance"
+
+  health_check {
+    protocol = "HTTPS"
+    port     = "3000"
+    path     = "/"
+  }
 }
 
-resource "aws_lb_listener" "quest-http-list" {
+resource "aws_lb_listener" "quest-list" {
   load_balancer_arn = aws_lb.quest_alb.arn
   port              = 80
   protocol          = "HTTP"
@@ -25,16 +31,6 @@ resource "aws_lb_listener" "quest-http-list" {
   }
 }
 
-resource "aws_lb_listener" "quest-https-list" {
-  load_balancer_arn = aws_lb.quest_alb.arn
-  port              = 443
-  protocol          = "HTTPS"
-
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.quest_tg.arn
-  }
-}
 
 resource "aws_lb_target_group_attachment" "ec2" {
   target_group_arn = aws_lb_target_group.quest_tg.arn
