@@ -14,7 +14,7 @@ resource "aws_lb_target_group" "quest_tg" {
   target_type = "instance"
 
   health_check {
-    protocol = "HTTPS"
+    protocol = "HTTP"
     port     = "3000"
     path     = "/"
   }
